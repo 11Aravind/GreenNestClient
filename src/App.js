@@ -9,14 +9,17 @@ import axios from "axios";
 import { AllRoutes } from "./AllRoutes";
 import { useDispatch } from "react-redux";
 import { fetchandstore } from "./Store1/Slices/productSlice"
-window.$apiBaseUrl = "http://localhost/Greennest/api/";
+import { httpRequest } from "./API/api";
+window.$apiBaseUrl = "https://greenlandorganicfarms.com/api/User/";
+// window.$apiBaseUrl = "http://localhost/Greennest/api/";
 
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
-    axios.get('http://localhost/Greennest/api/User/getProductList.php')
-      .then((data) => dispatch(fetchandstore(data.data)))
-      .catch(error => console.log(error));
+    httpRequest({}, "getProductList.php").then((data) => { dispatch(fetchandstore(data)) }).catch(error => console.log(error));
+    // axios.get('http://localhost/Greennest/api/User/getProductList.php')
+    //   .then((data) => dispatch(fetchandstore(data.data)))
+    //   .catch(error => console.log(error));
   }, []);
   return (
     <>

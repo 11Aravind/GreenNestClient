@@ -3,10 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   bannerList:[],
-  // bannerList:[{
-  //   image:""
-  // }],
-  imagePath:"http://localhost/Greennest/api/User/images/",
+  imagePath:"https://greenlandorganicfarms.com/api/User/images/",
 }
 
 export const bannerSlice = createSlice({

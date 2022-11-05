@@ -1,15 +1,13 @@
-viewProductDetails = e => {
-    e.preventDefault();
-    axios({
-      method: 'post',
-      url:window.$apiBaseUrl+User/selectoneProduct.php,
-    //   headers: { 'content-type': 'application/json' },    
-      data: product_id
-    })
-      .then(result => {
-        this.setState({
-          mailSent: result.data.sent
-        })
-      })
-      .catch(error => this.setState({ error: error.message }));
-  };
+import axios from "axios";
+
+export const httpRequest = (data, url) => {
+  return new Promise((resolve, reject) => {
+    axios.post(window.$apiBaseUrl + url, data, {
+      // headers: getAPI_Header()
+    }).then(function (response) {
+      resolve(response.data);
+    }).catch(function (error) {
+      reject(error);
+    });
+  });
+};
