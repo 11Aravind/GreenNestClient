@@ -1,0 +1,33 @@
+.slider-img{
+    /* height:409px; */
+    height: 537px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+     background-repeat: no-repeat;
+    /* border-radius: 21px; */
+
+}
+.slider-containerDiv{
+    /* width: 92%;
+    margin: 13px 4%; */
+  width: 100%;
+}
+@media (max-width:768px)
+{
+    .slider-img {
+        height: 285px;
+        /* background-size: contain; */
+        }
+}
+@media (max-width: 480px)
+{
+.slider-img {
+    height: 199px;
+    /* height:142px;
+    background-size: contain; */
+    }
+}
+
+/* # Tablet */
+/* only screen and (min-width: 768px)  */
