@@ -18,6 +18,7 @@ import {Plants} from './pages/Plants'
 import {Seeds} from './pages/Seeds'
 import {Planters} from './pages/Planters'
 import {PlantCare} from './pages/PlantCare'
+import { ProductList } from "./pages/ProductList/ProductList";
 // import
 const routeInfo = [
     {
@@ -35,6 +36,10 @@ const routeInfo = [
     {
         path: "/productdetails",
         component: <Productdetalils />,
+    },
+    {
+        path: "/productList",
+        component: <ProductList />,
     },
     {
         path: "/login",

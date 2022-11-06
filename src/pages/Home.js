@@ -12,10 +12,7 @@ export default function Home() {
 
   return (
     <>
-      {/* {newArrivals} */}
       <Slider />
-
-      {/* <Slidercard countries={countries} disableClick={false} /> */}
       <div className="product-container spacing">
         <div className="headding-container">
           <div className="label-img">
@@ -39,7 +36,6 @@ export default function Home() {
           >
             {products.map((item, index) => {
               var newArrivalArray = JSON.parse(item.product_tags);
-              // console.log(newArrivalArray);
               return newArrivalArray.filter((name) =>
                 name.includes("NEW_ARRIVALS")
               ) == "NEW_ARRIVALS" ? (
@@ -51,6 +47,7 @@ export default function Home() {
                     oldprice={item.old_price}
                     newprice={item.selling_price}
                     description={item.description}
+                    productInfo={item}
                   />
                 </Carousel.Item>
               ) : null;
@@ -73,16 +70,6 @@ export default function Home() {
           <Carousel
             containerStyle={{ width: "100%" }}
             loop={false}
-            // cols={4}
-            // rows={1}
-            // responsiveLayout={[
-            //   {
-            //     breakpoint: 480,
-            //     gap: 10,
-            //     cols: 2,
-            //     rows: 1,
-            //   },
-            // ]}
             cols={2}
             rows={1}
             mobileBreakpoint={392}
@@ -102,6 +89,7 @@ export default function Home() {
                     oldprice={item.old_price}
                     newprice={item.selling_price}
                     description={item.description}
+                    productInfo={item}
                   />
                   
                 </Carousel.Item>

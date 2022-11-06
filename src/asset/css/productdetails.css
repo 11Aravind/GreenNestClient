@@ -57,7 +57,7 @@
     padding: 4px 14px;
     color: #666;
     border: 1px solid #aaa;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
 
@@ -68,8 +68,26 @@
     border-right: none;
 }
 .price-btn-container{
-    padding: 18px 0px;
+    padding-top:3%;
 }
+.aboutProductHeading {
+    font-size: 24px !important;
+    line-height: 32px;
+    justify-content: start;
+    margin-top: 3%;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .aboutProductDescription{
+    max-width: 692px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 22px;
+    color: #646464;
+    font-weight: 300;
+    font-family: Outfit;
+    text-align: justify;
+  }
 /* //media querys */
 /* @media (max-width: 480px) */
 @media (max-width:768px)

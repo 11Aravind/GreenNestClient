@@ -10,19 +10,16 @@ export default function Card({
   description,
   cardClass,
   product_id,
+  productInfo
 }) {
   // console.log(window.$apiBaseUrl);
   return (
     // Make a request for a user with a given ID
     <>
       <div className={cardClass}>
-        <Link to="/productdetails" id={product_id}>
+        <Link to={"/productdetails"} state={{ productInfo: productInfo }} id={product_id}>
           <div className="product-img">
             <img className="productImage" src={image} alt="productImage" />
-            {/* <div class="middle">
-            <div class="text">View Product<i className="fa fa-caret-right arrow" aria-hidden="true"></i>
-            </div>
-          </div> */}
           </div>
           <div className="product-desc-container">
             <div className="product-name"> {productname}</div>

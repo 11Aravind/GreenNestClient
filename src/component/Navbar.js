@@ -5,16 +5,18 @@ import "react-multilevel-sidebar/src/Sidebar.css";
 import { useState } from "react";
 import menuData from "./menuData.js";
 import "../CSS/NavBar.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, handleClick] = useState(false);
-
+  const menuClicked = ({ rout, name }) => {
+    if (rout) {
+      navigate(rout, { state: { tag: name } });
+      handleClick(false);
+    }
+    // console.log(data)
+  };
   let options = [
-    // {
-    //     name: "Education",
-    //     titleIcon: <i className="fa fa-graduation-cap"></i>,
-    //     content: [{ id: 1, name: "My courses", to: "/my-courses" }]
-    // },
     {
       name: "",
       titleIcon: <i className="fa fa-paragraph"></i>,
@@ -30,11 +32,12 @@ const Navbar = () => {
                   id: 3,
                   name: "indoor plants",
                   ["Some property i need on clicking this"]: "value",
+                  rout: "/productList",
                 },
-                { id: 4, name: "Flowering Plants" },
-                { id: 5, name: "Hanging Plants" },
-                { id: 6, name: "Cacti and Succulents" },
-                { id: 7, name: "Air Purifying Plants" },
+                { id: 4, name: "Flowering Plants", rout: "/productList" },
+                { id: 5, name: "Hanging Plants"  , rout: "/productList" },
+                { id: 6, name: "Cacti and Succulents"  , rout: "/productList" },
+                { id: 7, name: "Air Purifying Plants"  , rout: "/productList" },
               ],
             },
           ],
@@ -45,13 +48,13 @@ const Navbar = () => {
           children: [
             {
               content: [
-                { id: 9, name: "Air Purifying Plants" },
-                { name: "FLOWER SEEDS", id: 10 },
-                { name: "VEGETABLE SEEDS", id: 11 },
-                { name: "MICROGREEN SEEDS", id: 12 },
-                { name: "HERB SEEDS", id: 13 },
-                { name: "FLOWER BULBS", id: 14 },
-                { name: "FRUIT SEEDS", id: 15 },
+                { id: 9, name: "Air Purifying Plants"  , rout: "/productList" },
+                { name: "FLOWER SEEDS", id: 10  , rout: "/productList" },
+                { name: "VEGETABLE SEEDS", id: 11  , rout: "/productList" },
+                { name: "MICROGREEN SEEDS", id: 12  , rout: "/productList" },
+                { name: "HERB SEEDS", id: 13  , rout: "/productList" },
+                { name: "FLOWER BULBS", id: 14  , rout: "/productList" },
+                { name: "FRUIT SEEDS", id: 15  , rout: "/productList" },
               ],
             },
           ],
@@ -62,13 +65,13 @@ const Navbar = () => {
           children: [
             {
               content: [
-                { name: "PLASTIC PLANTERS" },
-                { name: "CERAMIC PLANTERS" },
-                { name: "METAL PLANTERS" },
-                { name: "HANGING PLANTERS" },
-                { name: "PLANT STANDS" },
-                { name: "ZURI COLLECTION" },
-                { name: "SEEDLING TRAYYS" },
+                { name: "PLASTIC PLANTERS"  , rout: "/productList" },
+                { name: "CERAMIC PLANTERS"  , rout: "/productList" },
+                { name: "METAL PLANTERS"  , rout: "/productList" },
+                { name: "HANGING PLANTERS"  , rout: "/productList" },
+                { name: "PLANT STANDS"  , rout: "/productList" },
+                { name: "ZURI COLLECTION"  , rout: "/productList" },
+                { name: "SEEDLING TRAYYS"  , rout: "/productList" },
               ],
             },
           ],
@@ -79,11 +82,11 @@ const Navbar = () => {
           children: [
             {
               content: [
-                { name: "POTTING MIX AND FERTILISERS" },
-                { name: "GARDEN TOOLS" },
-                { name: "WATERING CANS AND SPRAYERS" },
-                { name: "GARDEN DECOR & ACCESSORIES" },
-                { name: "PEST CONTROL" },
+                { name: "POTTING MIX AND FERTILISERS"  , rout: "/productList" },
+                { name: "GARDEN TOOLS"  , rout: "/productList" },
+                { name: "WATERING CANS AND SPRAYERS"  , rout: "/productList" },
+                { name: "GARDEN DECOR & ACCESSORIES"  , rout: "/productList" },
+                { name: "PEST CONTROL"  , rout: "/productList" },
               ],
             },
           ],
@@ -98,7 +101,7 @@ const Navbar = () => {
         onToggle={() => handleClick(!isOpen)}
         options={options}
         header="Green Nest"
-        // onItemClick={this.handleClick}
+        onItemClick={menuClicked}
       />
       {/* using in our button to open the sidebar */}
       {/* <button > */}

@@ -170,11 +170,10 @@
   background-color: var(--primary);
   padding: 9px 13px;
   width: 103px;
-
   height: 35px;
   border: none;
-  margin: 0px 10px;
-  padding: 7px;
+  /* margin: 0px 10px;
+  padding: 7px; */
   /* border-radius: 4px; */
 }
 
@@ -448,14 +447,14 @@
 .sidebar-header {
   background-color: #fff6f4 !important;
 }
-#react-sidebar .sidebar-main {
-  width: calc(100% - 4rem) !important;
+/* #react-sidebar .sidebar-main {
+  width: 80%;
   color: #173a1d;
-  display: none;
 }
-#react-sidebar .sidebar-main.show {
-  display: block;
-}
+#react-sidebar .sidebar-main.second{
+  width: 100%;
+} */
+
 
 @media screen and (max-width: 767px) {
   .headding-container {
