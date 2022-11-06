@@ -14,7 +14,7 @@ export default function Productdetalils() {
             {/* </div> */}
           </div>
         </div>
-        <div className="productdetails-right-container">
+        <div className="productdetails-right-container spacing">
           <h2 className="product-names">Set of 12 Best Beans Vegetable Seeds</h2>
           {/* <div class="product_subtitle">Net Weight: 480-500g | No. of Pieces: 14-16 | Skinless | Cut: Small Pcs</div> */}
           {/* <div className="price">147</div> */}

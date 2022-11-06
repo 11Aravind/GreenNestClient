@@ -4,7 +4,9 @@
   box-sizing: border-box;
   font-family: Outfit, sans-serif;
 }
-
+.spacing{
+  padding-top: calc(36px * 0.75) !important;
+}
 :root {
   --primary: #149253;
   --secondary: white;

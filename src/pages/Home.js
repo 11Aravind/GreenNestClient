@@ -16,7 +16,7 @@ export default function Home() {
       <Slider />
 
       {/* <Slidercard countries={countries} disableClick={false} /> */}
-      <div className="product-container">
+      <div className="product-container spacing">
         <div className="headding-container">
           <div className="label-img">
             <img
@@ -58,7 +58,7 @@ export default function Home() {
           </Carousel>
         </div>
 
-        <div className="headding-container">
+        <div className="headding-container spacing">
           <div className="label-img">
             <img
               src="https://cdn.shopify.com/s/files/1/0579/7924/0580/files/Bestseller-1_2x_9a883cf1-58ba-4c74-badf-f02924575b68_small.png?v=1656416175"
@@ -73,16 +73,20 @@ export default function Home() {
           <Carousel
             containerStyle={{ width: "100%" }}
             loop={false}
-            cols={4}
+            // cols={4}
+            // rows={1}
+            // responsiveLayout={[
+            //   {
+            //     breakpoint: 480,
+            //     gap: 10,
+            //     cols: 2,
+            //     rows: 1,
+            //   },
+            // ]}
+            cols={2}
             rows={1}
-            responsiveLayout={[
-              {
-                breakpoint: 480,
-                gap: 10,
-                cols: 2,
-                rows: 1,
-              },
-            ]}
+            mobileBreakpoint={392}
+            responsiveLayout={[ { breakpoint: 761, cols: 2, rows: 1 },{ breakpoint: 2080, cols: 4, rows: 1 }]}
           >
             {products.map((item, index) => {
               var newArrivalArray = JSON.parse(item.product_tags);

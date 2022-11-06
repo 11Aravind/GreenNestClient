@@ -32,9 +32,14 @@
     color: #5c5353;
 }
 .product-names{
-    color: #555;
-    font-size: 20px;
+    word-break: break-word;
     font-weight: bold;
+    font-size: 30px;
+    font-family: Outfit;
+    font-weight: 500;
+    line-height: 46px;
+    font-style: normal;
+    letter-spacing: .06rem;
 }
 .product_subtitle{
     padding: 5px 0px 10px 0px;
@@ -81,9 +86,7 @@
         width: 100%;
     
 }
-.product-names{
-    font-size: 17px;
-}
+
 .quantity_container {
     justify-content: left;
 }

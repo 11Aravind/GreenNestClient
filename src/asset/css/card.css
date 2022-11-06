@@ -15,7 +15,7 @@
 }
 
 .productImage {
-  background: var(--cardBackground);
+  /* background: var(--cardBackground); */
   opacity: 1;
   display: block;
   width: 100%;
@@ -114,27 +114,15 @@ s {
 }
 .addbtn {
   width: 100%;
-  /* background-color:#fff; */
   background-color: var(--primary);
-  /* border: 1px solid var(--primary); */
   border: none;
   color: white;
-  /* border-radius: 5px; */
-  /* padding: 11px 12px; */
-  /* padding: 7px 12px; */
   background: #149253;
   border-color: #149253;
-  border-radius: 4px!important;
   line-height: 20px;
-  font-size: 15px;
-  letter-spacing: .1em;
-  font-weight: 400;
-  font-family: Outfit;
-  min-height: 40px!important;
-  pointer-events: visible;
   background: #149253;
   border-color: #149253;
-  border-radius: 4px!important;
+  border-radius: unset!important;
   line-height: 20px;
   font-size: 15px;
   letter-spacing: .1em;
@@ -143,6 +131,7 @@ s {
   min-height: 40px!important;
   pointer-events: visible;
   line-height: calc(1 + 0.8 / 1);
+  margin-top: 25px!important;
 }
 .new-price {
   width: 50%;

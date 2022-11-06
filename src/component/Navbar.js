@@ -5,6 +5,7 @@ import "react-multilevel-sidebar/src/Sidebar.css";
 import { useState } from "react";
 import menuData from "./menuData.js";
 import "../CSS/NavBar.css";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, handleClick] = useState(false);
 
@@ -107,17 +108,20 @@ const Navbar = () => {
           onClick={() => handleClick(true)}
           aria-hidden="true"
         ></i>
-        <div className="logo">
-          <img
-            srcSet="//cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=200&amp;v=1660383580 1x, //cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=400&amp;v=1660383580 2x"
-            src="//cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=200&amp;v=1660383580"
-            loading="lazy"
-            width="131"
-            height="59"
-            alt="Ugaoo"
-            className="header__heading-logo small-hide"
-          />
-        </div>
+        <Link to="/">
+          {" "}
+          <div className="logo">
+            <img
+              srcSet="//cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=200&amp;v=1660383580 1x, //cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=400&amp;v=1660383580 2x"
+              src="//cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=200&amp;v=1660383580"
+              loading="lazy"
+              width="131"
+              height="59"
+              alt="Ugaoo"
+              className="header__heading-logo small-hide"
+            />
+          </div>
+        </Link>
       </div>
       {/* </button> */}
     </div>
