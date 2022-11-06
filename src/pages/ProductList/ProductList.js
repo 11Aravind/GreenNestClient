@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import Card from "../../component/Card";
-import "./ProductList.css"
+import "./ProductList.css";
 export const ProductList = () => {
   const location = useLocation();
   let filteredProducts = [];
@@ -35,7 +35,6 @@ export const ProductList = () => {
             />
           );
         })}
-
       </div>
     </>
   );

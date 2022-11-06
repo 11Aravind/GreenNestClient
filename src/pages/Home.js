@@ -32,7 +32,10 @@ export default function Home() {
             cols={2}
             rows={1}
             mobileBreakpoint={392}
-            responsiveLayout={[ { breakpoint: 761, cols: 2, rows: 1 },{ breakpoint: 2080, cols: 4, rows: 1 }]}
+            responsiveLayout={[
+              { breakpoint: 761, cols: 2, rows: 1 },
+              { breakpoint: 2080, cols: 4, rows: 1 },
+            ]}
           >
             {products.map((item, index) => {
               var newArrivalArray = JSON.parse(item.product_tags);
@@ -48,6 +51,7 @@ export default function Home() {
                     newprice={item.selling_price}
                     description={item.description}
                     productInfo={item}
+                    viewProduct={true}
                   />
                 </Carousel.Item>
               ) : null;
@@ -73,7 +77,10 @@ export default function Home() {
             cols={2}
             rows={1}
             mobileBreakpoint={392}
-            responsiveLayout={[ { breakpoint: 761, cols: 2, rows: 1 },{ breakpoint: 2080, cols: 4, rows: 1 }]}
+            responsiveLayout={[
+              { breakpoint: 761, cols: 2, rows: 1 },
+              { breakpoint: 2080, cols: 4, rows: 1 },
+            ]}
           >
             {products.map((item, index) => {
               var newArrivalArray = JSON.parse(item.product_tags);
@@ -91,7 +98,6 @@ export default function Home() {
                     description={item.description}
                     productInfo={item}
                   />
-                  
                 </Carousel.Item>
               ) : null;
             })}

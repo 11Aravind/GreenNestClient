@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-family: Outfit, sans-serif;
 }
-.spacing{
+.spacing {
   padding-top: calc(36px * 0.75) !important;
 }
 :root {
@@ -112,11 +112,10 @@
 }
 
 .cart_headding {
-  font-size: 36px;
+  font-size: 20px;
   font-weight: normal;
   line-height: 40px;
   margin-bottom: 0;
-  color: var(--color);
   text-transform: none;
   text-align: center;
 }
@@ -164,7 +163,78 @@
 .submenu {
   padding: 0px 5px;
 }
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
 
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover,
+.offcanvas a:focus {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+.sidenav {
+  right: 0;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+.sidenav {
+  right: 0;
+}
+.cartButton {
+  position: fixed;
+  bottom: 5%;
+  right: 25px;
+  z-index: 1000;
+  color: green;
+  border: 1px solid;
+  border-radius: 19px;
+  padding: 2%;
+  background-color: white;
+  box-shadow: 0 0 10px;
+}
+.cartButton > i {
+  font-size: 3.5rem;
+}
 .addtocart {
   color: var(--secondary);
   background-color: var(--primary);
@@ -233,13 +303,17 @@
   /* border-bottom: 1px solid #e5e5e5;   */
   display: flex;
   /* justify-content: center; */
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding: 25px 4px;
-  margin: 29px 0px;
   /* box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px; */
 }
-
+.product-det-cart div {
+  padding-top: 3%;
+  letter-spacing: 0.1rem;
+}
+.cart-container {
+  padding: 0% 4%;
+}
 .cart-body {
 }
 
@@ -253,11 +327,7 @@
 }
 
 .product-cart-img {
-  width: 100%;
-}
-
-.cart-container {
-  margin: 9px 29px;
+  width: 100px;
 }
 
 .product-det-cart {
@@ -379,17 +449,17 @@
   }
 
   .img-cart {
-    width: 50%;
+    width: 35%;
   }
 
   .product-det-cart {
     flex-direction: column;
-    width: 50%;
+    width: 60%;
   }
 
   .cart-th {
-    margin: 0px 7px;
-    padding: 4px 0px;
+    margin: 0px 0px;
+    padding: 0px 0px;
   }
 
   .menu {
@@ -455,7 +525,6 @@
   width: 100%;
 } */
 
-
 @media screen and (max-width: 767px) {
   .headding-container {
     padding: 0;
@@ -466,12 +535,3 @@
     line-height: 32px;
   }
 }
-
-
-
-
-
-
-
-
-

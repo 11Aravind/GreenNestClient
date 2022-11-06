@@ -10,14 +10,19 @@ export default function Card({
   description,
   cardClass,
   product_id,
-  productInfo
+  productInfo,
+  viewProduct,
 }) {
   // console.log(window.$apiBaseUrl);
   return (
     // Make a request for a user with a given ID
     <>
       <div className={cardClass}>
-        <Link to={"/productdetails"} state={{ productInfo: productInfo }} id={product_id}>
+        <Link
+          to={"/productdetails"}
+          state={{ productInfo: productInfo }}
+          id={product_id}
+        >
           <div className="product-img">
             <img className="productImage" src={image} alt="productImage" />
           </div>
@@ -33,7 +38,12 @@ export default function Card({
                 </div>
               </div>
             </div>
-            <ButtonComponent text="ADD TO CART" classs="addbtn" />
+            <ButtonComponent
+              text={viewProduct ? "VIEW PRODUCT" : "ADD TO CART"}
+              classs="addbtn"
+              viewProduct
+              product={productInfo}
+            />
           </div>
         </Link>
       </div>

@@ -3,9 +3,9 @@ import Searchbar from "./Searchbar";
 import MultilevelSidebar from "react-multilevel-sidebar";
 import "react-multilevel-sidebar/src/Sidebar.css";
 import { useState } from "react";
-import menuData from "./menuData.js";
 import "../CSS/NavBar.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import Shopingcart from "../pages/Shopingcart";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, handleClick] = useState(false);
@@ -35,9 +35,9 @@ const Navbar = () => {
                   rout: "/productList",
                 },
                 { id: 4, name: "Flowering Plants", rout: "/productList" },
-                { id: 5, name: "Hanging Plants"  , rout: "/productList" },
-                { id: 6, name: "Cacti and Succulents"  , rout: "/productList" },
-                { id: 7, name: "Air Purifying Plants"  , rout: "/productList" },
+                { id: 5, name: "Hanging Plants", rout: "/productList" },
+                { id: 6, name: "Cacti and Succulents", rout: "/productList" },
+                { id: 7, name: "Air Purifying Plants", rout: "/productList" },
               ],
             },
           ],
@@ -48,13 +48,13 @@ const Navbar = () => {
           children: [
             {
               content: [
-                { id: 9, name: "Air Purifying Plants"  , rout: "/productList" },
-                { name: "FLOWER SEEDS", id: 10  , rout: "/productList" },
-                { name: "VEGETABLE SEEDS", id: 11  , rout: "/productList" },
-                { name: "MICROGREEN SEEDS", id: 12  , rout: "/productList" },
-                { name: "HERB SEEDS", id: 13  , rout: "/productList" },
-                { name: "FLOWER BULBS", id: 14  , rout: "/productList" },
-                { name: "FRUIT SEEDS", id: 15  , rout: "/productList" },
+                { id: 9, name: "Air Purifying Plants", rout: "/productList" },
+                { name: "FLOWER SEEDS", id: 10, rout: "/productList" },
+                { name: "VEGETABLE SEEDS", id: 11, rout: "/productList" },
+                { name: "MICROGREEN SEEDS", id: 12, rout: "/productList" },
+                { name: "HERB SEEDS", id: 13, rout: "/productList" },
+                { name: "FLOWER BULBS", id: 14, rout: "/productList" },
+                { name: "FRUIT SEEDS", id: 15, rout: "/productList" },
               ],
             },
           ],
@@ -65,13 +65,13 @@ const Navbar = () => {
           children: [
             {
               content: [
-                { name: "PLASTIC PLANTERS"  , rout: "/productList" },
-                { name: "CERAMIC PLANTERS"  , rout: "/productList" },
-                { name: "METAL PLANTERS"  , rout: "/productList" },
-                { name: "HANGING PLANTERS"  , rout: "/productList" },
-                { name: "PLANT STANDS"  , rout: "/productList" },
-                { name: "ZURI COLLECTION"  , rout: "/productList" },
-                { name: "SEEDLING TRAYYS"  , rout: "/productList" },
+                { name: "PLASTIC PLANTERS", rout: "/productList" },
+                { name: "CERAMIC PLANTERS", rout: "/productList" },
+                { name: "METAL PLANTERS", rout: "/productList" },
+                { name: "HANGING PLANTERS", rout: "/productList" },
+                { name: "PLANT STANDS", rout: "/productList" },
+                { name: "ZURI COLLECTION", rout: "/productList" },
+                { name: "SEEDLING TRAYYS", rout: "/productList" },
               ],
             },
           ],
@@ -82,11 +82,11 @@ const Navbar = () => {
           children: [
             {
               content: [
-                { name: "POTTING MIX AND FERTILISERS"  , rout: "/productList" },
-                { name: "GARDEN TOOLS"  , rout: "/productList" },
-                { name: "WATERING CANS AND SPRAYERS"  , rout: "/productList" },
-                { name: "GARDEN DECOR & ACCESSORIES"  , rout: "/productList" },
-                { name: "PEST CONTROL"  , rout: "/productList" },
+                { name: "POTTING MIX AND FERTILISERS", rout: "/productList" },
+                { name: "GARDEN TOOLS", rout: "/productList" },
+                { name: "WATERING CANS AND SPRAYERS", rout: "/productList" },
+                { name: "GARDEN DECOR & ACCESSORIES", rout: "/productList" },
+                { name: "PEST CONTROL", rout: "/productList" },
               ],
             },
           ],
@@ -103,16 +103,15 @@ const Navbar = () => {
         header="Green Nest"
         onItemClick={menuClicked}
       />
-      {/* using in our button to open the sidebar */}
-      {/* <button > */}
+
       <div className="headerDiv">
         <i
           className="fa fa-bars menuIcon"
           onClick={() => handleClick(true)}
           aria-hidden="true"
         ></i>
+
         <Link to="/">
-          {" "}
           <div className="logo">
             <img
               srcSet="//cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=200&amp;v=1660383580 1x, //cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=400&amp;v=1660383580 2x"
@@ -127,6 +126,11 @@ const Navbar = () => {
         </Link>
       </div>
       {/* </button> */}
+      <Link to="/cart">
+        <div className="cartButton">
+          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+        </div>
+      </Link>
     </div>
   );
 };

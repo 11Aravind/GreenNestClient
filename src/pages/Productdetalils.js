@@ -13,30 +13,31 @@ export default function Productdetalils() {
       <div className="productdetail-container">
         <div className="productdetails-left-container">
           <div className="big-product-img">
-            <img
-              src={imagePath+productInfo.product_img}
-              alt="big-img"
-            />
+            <img src={imagePath + productInfo.product_img} alt="big-img" />
           </div>
         </div>
         <div className="productdetails-right-container spacing">
           <h2 className="product-names">{productInfo.product_name}</h2>
           <div className="price">
-              <div className="priceContainer">
-                <div className="oldPrice">
-                  <s>₹{productInfo.old_price}</s>
-                </div>
-                <div className="new-price">
-                  <b>₹{productInfo.selling_price}</b>
-                </div>
+            <div className="priceContainer">
+              <div className="oldPrice">
+                <s>₹{productInfo.old_price}</s>
+              </div>
+              <div className="new-price">
+                <b>₹{productInfo.selling_price}</b>
               </div>
             </div>
+          </div>
           <div className="price-btn-container spacing">
             <div className="button-flex spacing">
-              <Quantitybtn />
+              {/* <Quantitybtn item={productInfo} /> */}
             </div>
             <Link to="/cart">
-              <ButtonComponent text="ADD TO CART" classs="addbtn addtocart" />
+              <ButtonComponent
+                text="ADD TO CART"
+                classs="addbtn addtocart"
+                product={productInfo}
+              />
             </Link>
           </div>
           <div className="product-small-desc spacing">
