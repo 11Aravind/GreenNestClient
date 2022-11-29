@@ -14,8 +14,13 @@ export const ProductList = () => {
       return tags.includes(requestedTag);
       //  console.log(product);
     });
-    console.log(filteredProducts);
   }
+  if (location.state.category) {
+    filteredProducts = products.filter((product) => {
+      return product.category == location.state.category;
+    });
+  }
+  console.log(filteredProducts);
 
   return (
     <>

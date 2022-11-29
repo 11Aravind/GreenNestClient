@@ -113,6 +113,7 @@ s {
   background-color: var(--primary);
   border: none;
   color: white;
+  cursor:pointer;
   background: #149253;
   border-color: #149253;
   line-height: 20px;
@@ -128,6 +129,11 @@ s {
   pointer-events: visible;
   line-height: calc(1 + 0.8 / 1);
   margin-top: 25px !important;
+  text-transform: uppercase;
+}
+.checkOutBtn{
+  font-size: 18px;
+  letter-spacing: 0.2rem;
 }
 .new-price {
   width: 50%;
@@ -192,7 +198,8 @@ s {
     margin: 6px 0px;
   }
   .productImage {
-    height: fit-content;
+    height: auto;
+    /* height: fit-content; */
   }
 }
 /* media query for phone  */

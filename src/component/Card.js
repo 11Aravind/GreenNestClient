@@ -1,7 +1,6 @@
 import "../asset/css/card.css";
 import { Link } from "react-router-dom";
 import ButtonComponent from "./ButtonComponent";
-// import Carousel from 'react-grid-carousel'
 export default function Card({
   image,
   productname,

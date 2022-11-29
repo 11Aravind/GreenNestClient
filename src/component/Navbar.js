@@ -4,17 +4,19 @@ import MultilevelSidebar from "react-multilevel-sidebar";
 import "react-multilevel-sidebar/src/Sidebar.css";
 import { useState } from "react";
 import "../CSS/NavBar.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import Shopingcart from "../pages/Shopingcart";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const isUserLogedIn = useSelector((state) => state.user.isUserLogedIn);
+  console.log(isUserLogedIn);
   const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, handleClick] = useState(false);
   const menuClicked = ({ rout, name }) => {
     if (rout) {
       navigate(rout, { state: { tag: name } });
       handleClick(false);
     }
-    // console.log(data)
   };
   let options = [
     {
@@ -91,6 +93,21 @@ const Navbar = () => {
             },
           ],
         },
+        {
+          id: 17,
+          name: "Account",
+          children: [
+            {
+              content: [
+                { name: "Orders", rout: "/orders" },
+                { name: "Change Password", rout: "/password" },
+                !isUserLogedIn
+                  ? { name: "Sign In", rout: "/signIn" }
+                  : { name: "Sign Out", rout: "/signIn" },
+              ],
+            },
+          ],
+        },
       ],
     },
   ];
@@ -100,7 +117,7 @@ const Navbar = () => {
         open={isOpen}
         onToggle={() => handleClick(!isOpen)}
         options={options}
-        header="Green Nest"
+        header="Green Land"
         onItemClick={menuClicked}
       />
 
@@ -125,12 +142,15 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      {/* </button> */}
-      <Link to="/cart">
-        <div className="cartButton">
-          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-        </div>
-      </Link>
+      {location.pathname != "/signIn" ? (
+        <Link to="/cart">
+          <div className="cartButton">
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          </div>
+        </Link>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

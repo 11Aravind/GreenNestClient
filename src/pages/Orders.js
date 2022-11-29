@@ -3,18 +3,14 @@ import { useCart } from "react-use-cart";
 import ButtonComponent from "../component/ButtonComponent";
 import Quantitybtn from "../component/Quantitybtn";
 
-const Shopingcart = () => {
-  const { isEmpty, items, cartTotal } = useCart();
+const Orders = () => {
   const imagePath = useSelector((state) => state.banner.imagePath);
-  console.log(items);
+  let orders = []
   return (
-    <>
-      {isEmpty ? (
-        <div className="emptyCartContainer product-headding">Your cart is empty</div>
-      ) : (
+    <>(
         <div className="cart-container">
           <div className="cart-body">
-            {items.map((product, key) => {
+            {orders.map((product, key) => {
               return (
                 <div className="body-tr" key={key}>
                   <div className="img-cart cart-th">
@@ -36,13 +32,13 @@ const Shopingcart = () => {
             })}
           </div>
           <ButtonComponent
-            text={"Checkout- ₹" + cartTotal}
+            text={"Checkout- ₹" }
             classs="addbtn checkOutBtn"
             checkOut={true}
           />
         </div>
-      )}
+
     </>
   );
 };
-export default Shopingcart;
+export default Orders;

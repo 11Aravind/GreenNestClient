@@ -6,20 +6,64 @@ import Carousel from "react-grid-carousel";
 import Slider from "../component/Imageslider";
 // import { Slidercard } from "../component/Slidercard"
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 export default function Home() {
   const products = useSelector((state) => state.productdetails.productList);
   const imagePath = useSelector((state) => state.banner.imagePath);
-
+  console.log(products);
   return (
     <>
       <Slider />
+      <div className="categoryFilterContainer spacing">
+        <div className="product-headding">What are you looking for?</div>
+        <div className="categories spacing">
+          <div className="categoryItem">
+            <Link to={"/productList"} state={{ category: "plants" }}>
+              <div className="categoryImage">
+                <img
+                src="./image/p1.jpg"
+                />
+              </div>
+              <div className="categoryName">Plants</div>
+            </Link>
+          </div>
+
+          <div className="categoryItem">
+            <Link to={"/productList"} state={{ category: "seeds" }}>
+              <div className="categoryImage">
+              <img
+                src="./image/p2.jpg"
+                />
+              </div>
+              <div className="categoryName ">Seeds</div>
+            </Link>
+          </div>
+          <div className="categoryItem">
+            <Link to={"/productList"} state={{ category: "planters" }}>
+              <div className="categoryImage">
+              <img
+                src="./image/p3.jpg"
+                />
+              </div>
+              <div className="categoryName">Planters</div>
+            </Link>
+          </div>
+          <div className="categoryItem">
+          <Link to={"/productList"} state={{ category: "plantcares" }}>
+            <div className="categoryImage">
+            <img
+                src="./image/p4.jpg"
+                />
+            </div>
+            <div className="categoryName">Plant Care</div>
+            </Link>
+          </div>
+        </div>
+      </div>
       <div className="product-container spacing">
         <div className="headding-container">
           <div className="label-img">
-            <img
-              src="https://cdn.shopify.com/s/files/1/0579/7924/0580/files/New-Plants_2x_d5110dfd-b698-4342-ba8d-9aa908711a32_small.png?v=1656414976"
-              alt="label-img"
-            />
+            <img srcSet="https://cdn.shopify.com/s/files/1/0579/7924/0580/files/New-Plants_2x_d5110dfd-b698-4342-ba8d-9aa908711a32_small.png?v=1656414976" />
           </div>
           <div className="product-headding topheadding">New Arrivals</div>
           <div className="arrow-container"></div>
@@ -31,7 +75,7 @@ export default function Home() {
             loop={false}
             cols={2}
             rows={1}
-            mobileBreakpoint={392}
+            mobileBreakpoint={370}
             responsiveLayout={[
               { breakpoint: 761, cols: 2, rows: 1 },
               { breakpoint: 2080, cols: 4, rows: 1 },
@@ -76,7 +120,7 @@ export default function Home() {
             loop={false}
             cols={2}
             rows={1}
-            mobileBreakpoint={392}
+            mobileBreakpoint={375}
             responsiveLayout={[
               { breakpoint: 761, cols: 2, rows: 1 },
               { breakpoint: 2080, cols: 4, rows: 1 },
@@ -97,6 +141,7 @@ export default function Home() {
                     newprice={item.selling_price}
                     description={item.description}
                     productInfo={item}
+                    viewProduct={true}
                   />
                 </Carousel.Item>
               ) : null;
