@@ -5,9 +5,14 @@ import Carousel from "react-grid-carousel";
 // import { CountriesSlider } from "../component/Card"
 import Slider from "../component/Imageslider";
 // import { Slidercard } from "../component/Slidercard"
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setUserLoginStatus } from "../Store1/Slices/UserSlice";
 export default function Home() {
+  const dispatch = useDispatch();
+  const loginCredentials = JSON.parse(localStorage.getItem("loginCredentials"));
+  if (loginCredentials != null) 
+  dispatch(setUserLoginStatus(loginCredentials));
   const products = useSelector((state) => state.productdetails.productList);
   const imagePath = useSelector((state) => state.banner.imagePath);
   console.log(products);
@@ -20,9 +25,7 @@ export default function Home() {
           <div className="categoryItem">
             <Link to={"/productList"} state={{ category: "plants" }}>
               <div className="categoryImage">
-                <img
-                src="./image/p1.jpg"
-                />
+                <img src="./image/p1.jpg" />
               </div>
               <div className="categoryName">Plants</div>
             </Link>
@@ -31,9 +34,7 @@ export default function Home() {
           <div className="categoryItem">
             <Link to={"/productList"} state={{ category: "seeds" }}>
               <div className="categoryImage">
-              <img
-                src="./image/p2.jpg"
-                />
+                <img src="./image/p2.jpg" />
               </div>
               <div className="categoryName ">Seeds</div>
             </Link>
@@ -41,21 +42,17 @@ export default function Home() {
           <div className="categoryItem">
             <Link to={"/productList"} state={{ category: "planters" }}>
               <div className="categoryImage">
-              <img
-                src="./image/p3.jpg"
-                />
+                <img src="./image/p3.jpg" />
               </div>
               <div className="categoryName">Planters</div>
             </Link>
           </div>
           <div className="categoryItem">
-          <Link to={"/productList"} state={{ category: "plantcares" }}>
-            <div className="categoryImage">
-            <img
-                src="./image/p4.jpg"
-                />
-            </div>
-            <div className="categoryName">Plant Care</div>
+            <Link to={"/productList"} state={{ category: "plantcares" }}>
+              <div className="categoryImage">
+                <img src="./image/p4.jpg" />
+              </div>
+              <div className="categoryName">Plant Care</div>
             </Link>
           </div>
         </div>

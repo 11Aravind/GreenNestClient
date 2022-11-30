@@ -6,7 +6,7 @@ import React from "react";
 // import Footer from "./component/Footer"
 import Productdetalils from "./pages/Productdetalils";
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Shopingcart from "./pages/Shopingcart";
 import Register from "./pages/Register";
@@ -21,11 +21,16 @@ import { PlantCare } from "./pages/PlantCare";
 import { ProductList } from "./pages/ProductList/ProductList";
 import { SignIn } from "./pages/SignIn/SignIn";
 import Orders from "./pages/Orders";
+import { Address, OrderConfirmation } from "./pages/Components/OrderConfirmation";
 // import
 const routeInfo = [
   {
     path: "/",
     component: <Home />,
+  },
+  {
+    path: "/OrderConfirmation",
+    component: <OrderConfirmation />,
   },
   {
     path: "/plants",
@@ -47,10 +52,10 @@ const routeInfo = [
     path: "/signIn",
     component: <SignIn />,
   },
-  {
-    path: "/login",
-    component: <Login />,
-  },
+  // {
+  //   path: "/login",
+  //   component: <Login />,
+  // },
   {
     path: "/cart",
     component: <Shopingcart />,

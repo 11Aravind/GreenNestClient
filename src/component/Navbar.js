@@ -5,15 +5,21 @@ import "react-multilevel-sidebar/src/Sidebar.css";
 import { useState } from "react";
 import "../CSS/NavBar.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserLoginStatus } from "../Store1/Slices/UserSlice";
 const Navbar = () => {
-  const isUserLogedIn = useSelector((state) => state.user.isUserLogedIn);
-  console.log(isUserLogedIn);
+  const user_id = useSelector((state) => state.user.user_id);
+  const dispatchStore = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, handleClick] = useState(false);
   const menuClicked = ({ rout, name }) => {
-    if (rout) {
+    if (rout == "/signOut") {
+      dispatchStore(setUserLoginStatus({ user_id: null }));
+      localStorage.setItem("loginCredentials", null);
+      navigate("/");
+      handleClick(false);
+    } else if (rout) {
       navigate(rout, { state: { tag: name } });
       handleClick(false);
     }
@@ -101,9 +107,9 @@ const Navbar = () => {
               content: [
                 { name: "Orders", rout: "/orders" },
                 { name: "Change Password", rout: "/password" },
-                !isUserLogedIn
+                user_id == null
                   ? { name: "Sign In", rout: "/signIn" }
-                  : { name: "Sign Out", rout: "/signIn" },
+                  : { name: "Sign Out", rout: "/signOut" },
               ],
             },
           ],

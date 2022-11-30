@@ -3,7 +3,6 @@
   flex-direction: column;
   padding: 0% 35%;
   width: 100%;
-  
 }
 .signInHeading {
   font-size: 2em !important;
@@ -35,6 +34,21 @@
   font-size: 20px !important;
   line-height: 32px;
   text-align: center;
+}
+.signUPMessage {
+  text-align: center;
+  display: flex;
+  background-color: green;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  text-transform: capitalize;
+  /* line-height: 59px; */
+  padding: 2% 0%;
+  margin-top: 5%;
+
+
 }
 
 @media (max-width: 768px) {

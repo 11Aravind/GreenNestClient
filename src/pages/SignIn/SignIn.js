@@ -1,8 +1,15 @@
 import { useState, useReducer } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { httpRequest } from "../../API/api";
+import { setUserLoginStatus } from "../../Store1/Slices/UserSlice";
+
 import "./SignIn.css";
 export const SignIn = () => {
   const [isSignIn, showHideSignIn] = useState(true);
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const dispatchStore = useDispatch();
 
   const initialState = {
     name: "",
@@ -36,7 +43,22 @@ export const SignIn = () => {
       state,
       isSignIn ? "userAuthentication.php" : "createUser.php"
     ).then((data) => {
-      console.log(data);
+      if (isSignIn && data.message.length > 0) {
+        dispatchStore(setUserLoginStatus(...data.message));
+        localStorage.setItem(
+          "loginCredentials",
+          JSON.stringify(...data.message)
+        );
+        navigate(-1);
+      }
+      if (typeof isSignIn == "undefined" && data.status) {
+        // signup +success
+        setMessage(data.message);
+        showHideSignIn(true);
+      }
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
     });
   };
   return (
@@ -44,6 +66,11 @@ export const SignIn = () => {
       {isSignIn ? (
         <div className="signInContainer spacing">
           <div className="signInHeading spacing product-headding">Sign In</div>
+          {message == "" ? (
+            <></>
+          ) : (
+            <div className="signUPMessage">{message}</div>
+          )}
           <div className="mobile spacing">
             <input
               type="text"
@@ -66,7 +93,7 @@ export const SignIn = () => {
             />
           </div>
           <div className="button spacing">
-            <button className="addbtn" onClick={()=>signUp(true)}>
+            <button className="addbtn" onClick={(event) => signUp(event, true)}>
               Sign In
             </button>
           </div>
@@ -74,7 +101,7 @@ export const SignIn = () => {
             New here ?{" "}
             <span
               onClick={() => showHideSignIn(false)}
-              style={{ color: "green", cursor:"pointer" }}
+              style={{ color: "green", cursor: "pointer" }}
             >
               {" "}
               Create Account
@@ -88,6 +115,11 @@ export const SignIn = () => {
             <div className="signInHeading spacing product-headding">
               Sign Up
             </div>
+            {message == "" ? (
+              <></>
+            ) : (
+              <div className="signUPMessage">{message}</div>
+            )}
             <div className="mobile spacing">
               <input
                 type="text"
@@ -134,7 +166,7 @@ export const SignIn = () => {
               Already have an Account ?{" "}
               <span
                 onClick={() => showHideSignIn(true)}
-                style={{ color: "green", cursor:"pointer" }}
+                style={{ color: "green", cursor: "pointer" }}
               >
                 {" "}
                 Sign In

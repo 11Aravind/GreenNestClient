@@ -1,16 +1,23 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { useCart } from "react-use-cart";
 import ButtonComponent from "../component/ButtonComponent";
 import Quantitybtn from "../component/Quantitybtn";
 
 const Shopingcart = () => {
   const { isEmpty, items, cartTotal } = useCart();
+  const navigate = useNavigate();
   const imagePath = useSelector((state) => state.banner.imagePath);
-  console.log(items);
+  const userId = useSelector((state) => state.user.user_id);
+  const onCheckOut = () => {
+    userId == null ? navigate("/signIn") : navigate("/OrderConfirmation");
+  };
   return (
     <>
       {isEmpty ? (
-        <div className="emptyCartContainer product-headding">Your cart is empty</div>
+        <div className="emptyCartContainer product-headding">
+          Your cart is empty
+        </div>
       ) : (
         <div className="cart-container">
           <div className="cart-body">
@@ -39,6 +46,7 @@ const Shopingcart = () => {
             text={"Checkout- ₹" + cartTotal}
             classs="addbtn checkOutBtn"
             checkOut={true}
+            onClick={onCheckOut}
           />
         </div>
       )}

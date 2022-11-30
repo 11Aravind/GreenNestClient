@@ -6,6 +6,6 @@ export const store = configureStore({
   reducer: {
     productdetails: productSlice,
     banner: bannerSlice,
-    user: UserSlice,
+    user:UserSlice
   },
 });

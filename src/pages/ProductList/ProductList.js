@@ -37,6 +37,7 @@ export const ProductList = () => {
               newprice={product.selling_price}
               description={product.description}
               productInfo={product}
+              viewProduct={true}
             />
           );
         })}
