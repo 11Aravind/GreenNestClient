@@ -22,6 +22,7 @@ import { ProductList } from "./pages/ProductList/ProductList";
 import { SignIn } from "./pages/SignIn/SignIn";
 import Orders from "./pages/Orders";
 import { Address, OrderConfirmation } from "./pages/Components/OrderConfirmation";
+import { PayOnline } from "./pages/OnlinePayment/PayOnline";
 // import
 const routeInfo = [
   {
@@ -52,10 +53,10 @@ const routeInfo = [
     path: "/signIn",
     component: <SignIn />,
   },
-  // {
-  //   path: "/login",
-  //   component: <Login />,
-  // },
+  {
+    path: "/PayOnline",
+    component: <PayOnline />,
+  },
   {
     path: "/cart",
     component: <Shopingcart />,

@@ -106,7 +106,7 @@ const Navbar = () => {
             {
               content: [
                 { name: "Orders", rout: "/orders" },
-                { name: "Change Password", rout: "/password" },
+                // { name: "Change Password", rout: "/password" },
                 user_id == null
                   ? { name: "Sign In", rout: "/signIn" }
                   : { name: "Sign Out", rout: "/signOut" },

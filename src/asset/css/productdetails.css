@@ -34,6 +34,7 @@
   word-break: break-word;
   font-weight: bold;
   font-size: 30px;
+  /* font-size: 30px; */
   font-family: Outfit;
   font-weight: 500;
   line-height: 46px;
@@ -78,7 +79,7 @@
   /* max-width: 692px; */
   margin: 0 auto;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 30px;
   color: #646464;
   font-weight: 300;
   font-family: Outfit;
@@ -87,6 +88,9 @@
 /* //media querys */
 /* @media (max-width: 480px) */
 @media (max-width: 768px) {
+  .product-names {
+    font-size: 20px;
+  }
   .aboutProductDescription {
     max-width: 692px;
   }

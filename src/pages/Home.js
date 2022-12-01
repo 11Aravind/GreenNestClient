@@ -75,7 +75,7 @@ export default function Home() {
             mobileBreakpoint={370}
             responsiveLayout={[
               { breakpoint: 761, cols: 2, rows: 1 },
-              { breakpoint: 2080, cols: 4, rows: 1 },
+              { breakpoint: 2080, cols: 5, rows: 1 },
             ]}
           >
             {products.map((item, index) => {
@@ -120,7 +120,7 @@ export default function Home() {
             mobileBreakpoint={375}
             responsiveLayout={[
               { breakpoint: 761, cols: 2, rows: 1 },
-              { breakpoint: 2080, cols: 4, rows: 1 },
+              { breakpoint: 2080, cols: 5, rows: 1 },
             ]}
           >
             {products.map((item, index) => {

@@ -1,18 +1,48 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { useCart } from "react-use-cart";
+import { httpRequest } from "../../API/api";
 import ButtonComponent from "../../component/ButtonComponent";
 import "./OrderConfirmation.css";
 export const OrderConfirmation = () => {
   const { isEmpty, items, cartTotal } = useCart();
   const savedAddress = useSelector((state) => state.user.address);
+  const loginCredentials = JSON.parse(localStorage.getItem("loginCredentials"));
+  const user_id = loginCredentials.user_id;
   const [address, setAddress] = useState(savedAddress);
   const [paymentMode, setPaymentMode] = useState("cod");
+  const navigate = useNavigate();
   let completeOrder = () => {
-    console.log(address);
-    console.log(items);
-    console.log(paymentMode);
-
+    if (!isEmpty) {
+      const product = items.map(({ product_id, price, quantity }) => {
+        return { product_id, price, quantity };
+      });
+      const data = {
+        user_id: user_id,
+        address: address,
+        items: product,
+        cartTotal: cartTotal,
+        paymentMode: paymentMode,
+        orderID:null
+      };
+      console.log(data);
+      httpRequest(data, "checkOut.php").then((respose) => {
+        if (respose && respose.status && paymentMode == "cod") {
+          //cod success
+        } else if (respose && respose.status && paymentMode == "Online") {
+          //cod success
+          data.orderID=respose.message;
+          navigate("/PayOnline", { state: data });
+        }
+      });
+    }
+    // console.log(address);
+    // console.log(address);
+    // console.log(items);
+    // console.log(cartTotal);
+    // console.log(paymentMode);
+    // CheckoutPage.php
   };
   return (
     <div className="spacing categoryFilterContainer">
