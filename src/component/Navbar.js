@@ -148,7 +148,7 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      {location.pathname != "/signIn" ? (
+      {location.pathname != "/signIn" && location.pathname != "/OrderPlaced" ? (
         <Link to="/cart">
           <div className="cartButton">
             <i className="fa fa-shopping-cart" aria-hidden="true"></i>

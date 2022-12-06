@@ -23,6 +23,7 @@ import { SignIn } from "./pages/SignIn/SignIn";
 import Orders from "./pages/Orders";
 import { Address, OrderConfirmation } from "./pages/Components/OrderConfirmation";
 import { PayOnline } from "./pages/OnlinePayment/PayOnline";
+import { OrderPlaced } from "./pages/OrderPlaced/OrderPlaced";
 // import
 const routeInfo = [
   {
@@ -56,6 +57,10 @@ const routeInfo = [
   {
     path: "/PayOnline",
     component: <PayOnline />,
+  },
+  {
+    path: "/OrderPlaced",
+    component: <OrderPlaced />,
   },
   {
     path: "/cart",

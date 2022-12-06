@@ -30,6 +30,7 @@ export const OrderConfirmation = () => {
       httpRequest(data, "checkOut.php").then((respose) => {
         if (respose && respose.status && paymentMode == "cod") {
           //cod success
+          navigate("/OrderPlaced");
         } else if (respose && respose.status && paymentMode == "Online") {
           //cod success
           data.orderID=respose.message;

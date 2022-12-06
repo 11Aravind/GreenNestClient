@@ -1,0 +1,40 @@
+.productContainer {
+  display: flex;
+  margin: 1% 4%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d9cece;
+}
+.orderDetails {
+  display: flex;
+  margin: 1% 4%;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 1px solid #d9cece; */
+}
+.productImageSection {
+  width: 45%;
+}
+.price {
+  width: 12%;
+}
+.quantity {
+  width: 12%;
+}
+.total {
+  width: 12%;
+}
+
+.orderMsg {
+  font-size: 12px;
+  text-align: center;
+}
+.font12 {
+  font-size: 12px;
+}
+.displayNone {
+  display: none;
+}
+.displayBlock {
+  display: block;
+}
