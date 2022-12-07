@@ -6,9 +6,7 @@ import Quantitybtn from "../component/Quantitybtn";
 import "./Order.css";
 
 const Orders = () => {
-  const imagePath = useSelector((state) => state.banner.imagePath);
   const [orders, setOrders] = useState([]);
-  // let orders = [];
   useEffect(() => {
     const loginCredentials = JSON.parse(
       localStorage.getItem("loginCredentials")
@@ -34,23 +32,57 @@ export default Orders;
 
 export const OrderItem = ({ order }) => {
   let orderedProducts = JSON.parse(order.product_id);
-  const { order_id, totalAmount, transaction_id } = order;
-  const [showProduct, toggleProduct] = useState(false)
+  const { order_id, totalAmount, transaction_id, message } = order;
+  const [showProduct, toggleProduct] = useState(false);
+  const cancelOrder = (event, orderID) => {
+    console.log(orderID);
+    httpRequest({ orderID }, "cancelOrder.php");
+  };
   return (
-    <div className="orderContainer">
-      <div className="orderDetails">
-        <div className="order_id font12">ID: {order_id}</div>
-        <div className="totalAmount font12">Total: {totalAmount} </div>
-        <div className="transaction_id font12">Payment: {transaction_id}</div>
-        <div className="status font12">Transist</div>
-        <div className="status font12"onClick={()=>toggleProduct(!showProduct)}>Open {showProduct}</div>
+    <div>
+      <div className="orderContainer">
+        <div className="orderDetails">
+          <div className="order_id font12">
+            <b>ID:</b> #{order_id}
+          </div>
+          <div className="totalAmount font12">
+            <b>Total:</b> {totalAmount}{" "}
+          </div>
+          <div className="transaction_id font12">
+            <b>Payment:</b> {transaction_id == 0 ? "COD" : "ONLINE"}
+          </div>
+          {/* <div className="status font12">Transist</div> */}
+          <div
+            className="status font12"
+            onClick={() => toggleProduct(!showProduct)}
+          >
+            <i
+              className={!showProduct ? "fa fa-plus" : "fa fa-minus"}
+              aria-hidden="true"
+            ></i>
+          </div>
+        </div>
+        <div className="orderMsg">{message}</div>
+        <div></div>{" "}
       </div>
-        <div className="orderMsg">"Ecom id :65465456465464654"</div>
-      <div> </div>
-      <div className={showProduct?"products displayBlock" : "products displayNone"} >
+      <div
+        className={
+          showProduct ? "products displayBlock" : "products displayNone"
+        }
+      >
         {orderedProducts.map((orderedProduct, index) => {
           return <Product key={index} orderedProduct={orderedProduct} />;
         })}
+        <div
+          className="cancelOrder"
+          onClick={(event) => {
+            cancelOrder(event, order_id);
+          }}
+        >
+          {" "}
+          Cancel Order
+          {/* Cancel Order <i className="fa fa-trash-o" aria-hidden="true"></i> */}
+        </div>
       </div>
     </div>
   );
@@ -74,10 +106,10 @@ export const Product = ({ orderedProduct }) => {
     <>
       <div className="productContainer">
         <div className="productImageSection">
-          <div className="name">{product_name}</div>
           <div className="image">
-            <img src={imagePath + product_img} width="90" />
+            <img src={imagePath + product_img} width="50" />
           </div>
+          <div className="name">{product_name}</div>
         </div>
         <div className="price">{price}</div>
         <div className="quantity">{quantity}</div>

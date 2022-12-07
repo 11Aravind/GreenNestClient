@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #d9cece;
+  font-size: 12px;
 }
 .orderDetails {
   display: flex;
@@ -28,13 +29,63 @@
 .orderMsg {
   font-size: 12px;
   text-align: center;
+  color: #b2beb5;
 }
 .font12 {
   font-size: 12px;
 }
 .displayNone {
+  position: absolute;
+  /* width: 100%; background: pink; padding: 20px;   */
+  /* visibility: hidden; */
   display: none;
+  height: 0;
+
+  /* transform: translateY(0); */
+  /* transition: all 1s ease-out; */
 }
 .displayBlock {
-  display: block;
+  animation: slideDown 1s;
+  padding: 3% 0% 0% 0%;
+  margin: 3% 4%;
+  box-shadow: 0 0 15px rgb(0 0 0 / 12%);
+  border-radius: 10px;
+}
+.cancelOrder {
+  background: #FF0800;
+  color: white;
+  line-height: 2rem;
+  text-align: center;
+  border-radius: 0px 0px 10px 10px;
+
+}
+@keyframes slideDown {
+  from {
+    /* height: 0px; */
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    /* height: auto; */
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.orderContainer {
+  margin: 1.5% 4%;
+  box-shadow: 0 0 1px;
+  padding: 0.5% 0%;
+  box-shadow: 0 0 15px rgb(0 0 0 / 18%);
+  line-height: 1.8em;
+  border-radius: 10px;
+}
+.status {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .orderContainer {
+    padding: 3% 0%;
+    margin: 3% 4%;
+  }
 }

@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router";
+import { useCart } from "react-use-cart";
 import "./OrderPlaced.css";
 export const OrderPlaced = () => {
-    const navigate = useNavigate();
-    setTimeout(() => {
-        navigate("/"); 
-    }, 4000);
+  const navigate = useNavigate();
+  const { emptyCart } = useCart();
+
+  setTimeout(() => {
+    emptyCart();
+    navigate("/");
+  }, 4000);
   return (
     <div className="orderPlacedContainer bgGreen">
       <div className="orderMSG">
