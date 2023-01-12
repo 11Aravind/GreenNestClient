@@ -114,11 +114,9 @@ s {
   border: none;
   color: white;
   cursor:pointer;
-  background: #149253;
-  border-color: #149253;
+  background: var(--primary);
+  border-color:var(--primary);
   line-height: 20px;
-  background: #149253;
-  border-color: #149253;
   border-radius: unset !important;
   line-height: 20px;
   font-size: 15px;

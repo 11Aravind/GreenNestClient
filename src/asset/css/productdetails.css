@@ -1,6 +1,6 @@
 .productdetail-container {
   display: flex;
-  margin: 91px 68px;
+  margin: 2% 4%;
   justify-content: space-between;
 }
 
@@ -91,18 +91,19 @@
   .product-names {
     font-size: 20px;
   }
+
   .aboutProductDescription {
     max-width: 692px;
   }
   .productdetail-container {
     flex-direction: column;
-    margin: 0px;
+    margin:0% 4%;
   }
   .productdetails-left-container {
     width: 100%;
   }
   .productdetails-right-container {
-    padding: 0px 22px;
+    /* padding: 0% 4%; */
     width: 100%;
   }
 

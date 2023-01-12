@@ -18,9 +18,6 @@ function App() {
         dispatch(fetchandstore(data));
       })
       .catch((error) => console.log(error));
-    // axios.get('http://localhost/Greennest/api/User/getProductList.php')
-    //   .then((data) => dispatch(fetchandstore(data.data)))
-    //   .catch(error => console.log(error));
   }, []);
 
   return (

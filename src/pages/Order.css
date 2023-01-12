@@ -16,7 +16,7 @@
 .productImageSection {
   width: 45%;
 }
-.price {
+.orderPrice {
   width: 12%;
 }
 .quantity {
@@ -46,10 +46,12 @@
 }
 .displayBlock {
   animation: slideDown 1s;
-  padding: 3% 0% 0% 0%;
-  margin: 3% 4%;
+  padding: 1% 0% 0% 0%;
+  margin: 1% 4% 0% 4%;
+  background-color: whitesmoke;
   box-shadow: 0 0 15px rgb(0 0 0 / 12%);
   border-radius: 10px;
+
 }
 .cancelOrder {
   background: #FF0800;

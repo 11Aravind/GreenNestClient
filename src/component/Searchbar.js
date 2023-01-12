@@ -91,24 +91,6 @@ export default function Searchbar() {
             autoFocus
             placeholder="Type product name to search "
           />
-          {/* <div style={{ marginTop: 20 }}>This text will be covered!</div> */}
-        {/* </div> */}
-                     {/* end  */}
-                    {/* </div>
-                </div> */}
-
-                {/* <div className="right-container">
-                    <span className="user-profile">
-                        <i className="fa fa-user-o" aria-hidden="true"></i>
-                    </span>
-                    <span className="cart">
-                        <Link to="/cart"><i className="fa fa-shopping-bag" aria-hidden="true"></i></Link> 
-
-                    </span>
-                    <div className="buttons">              
-                    </div>
-                </div> */}
-            {/* </div> */}
         </>
     )
 }

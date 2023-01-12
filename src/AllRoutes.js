@@ -24,11 +24,19 @@ import Orders from "./pages/Orders";
 import { Address, OrderConfirmation } from "./pages/Components/OrderConfirmation";
 import { PayOnline } from "./pages/OnlinePayment/PayOnline";
 import { OrderPlaced } from "./pages/OrderPlaced/OrderPlaced";
+import AboutUS from "./pages/AboutUS";
+import PrivacyPolicy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import RefundPolicy from "./component/RefundPolicy";
 // import
 const routeInfo = [
   {
     path: "/",
     component: <Home />,
+  },
+  {
+    path: "/About",
+    component: <AboutUS />,
   },
   {
     path: "/OrderConfirmation",
@@ -81,6 +89,18 @@ const routeInfo = [
   {
     path: "/contactus",
     component: <Contactus />,
+  },
+  {
+    path: "/PrivacyPolicy",
+    component: <PrivacyPolicy />,
+  },
+  {
+    path: "/Terms",
+    component: <Terms />,
+  },
+  {
+    path: "/RefundPolicy",
+    component: <RefundPolicy />,
   },
   {
     path: "/PlantCare",

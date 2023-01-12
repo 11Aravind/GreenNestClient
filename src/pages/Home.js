@@ -8,14 +8,21 @@ import Slider from "../component/Imageslider";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setUserLoginStatus } from "../Store1/Slices/UserSlice";
+import { useEffect } from "react";
 export default function Home() {
   const dispatch = useDispatch();
-  const loginCredentials = JSON.parse(localStorage.getItem("loginCredentials"));
-  if (loginCredentials != null) 
-  dispatch(setUserLoginStatus(loginCredentials));
+
   const products = useSelector((state) => state.productdetails.productList);
   const imagePath = useSelector((state) => state.banner.imagePath);
-  console.log(products);
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    console.log(user);
+    const loginCredentials = JSON.parse(localStorage.getItem("loginCredentials"));
+    if (loginCredentials != null) 
+    dispatch(setUserLoginStatus(loginCredentials));
+  }, [])
+  
   return (
     <>
       <Slider />

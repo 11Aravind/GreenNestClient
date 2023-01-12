@@ -8,7 +8,8 @@
   padding-top: calc(36px * 0.75) !important;
 }
 :root {
-  --primary: #149253;
+  --primary: #3c8031!important;
+  /* --primary: #149253; */
   --secondary: white;
   --black: black;
   --color: #7755a2;
@@ -226,7 +227,7 @@
   bottom: 5%;
   right: 25px;
   z-index: 1000;
-  color: green;
+  color: var(--primary);
   border: 1px solid;
   border-radius: 19px;
   padding: 1%;
@@ -440,7 +441,25 @@
 .label-img img {
   width: 100%;
 }
-
+.contactUSContainer{
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  margin: auto;
+}
+.privacyContainer{
+  padding: 1% 4% ;
+  line-height: 2.5;
+}
+.headingRefund{
+  font-weight: bold;
+  font-size: x-large;
+}
 /* media query  */
 /* # Mobile */
 /* @media (max-width: 480px)  */

@@ -10,7 +10,12 @@ export const SignIn = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const dispatchStore = useDispatch();
-
+  const showHideMessage = (message)=>{
+    setMessage(message);
+    setTimeout(() => {
+      setMessage("")
+    }, 3000);
+  }
   const initialState = {
     name: "",
     phone_no: "",
@@ -38,7 +43,27 @@ export const SignIn = () => {
     });
   };
 
-  const signUp = (event, isSignIn) => {
+  const signUp = (event) => {
+    if ((isSignIn && state.signInMobile == "")||(isSignIn&&!(/^[6-9]\d{9}$/gm).test(state.signInMobile))) {
+      showHideMessage("Mobile number is invalid");
+      return;
+    } else if (isSignIn && state.signInPassword == "") {
+      showHideMessage("Password is empty");
+      return;
+    } else if (!isSignIn && state.name == "") {
+      showHideMessage("Name is empty");
+      return;
+    } else if ((!isSignIn && state.phone_no == "") || (!isSignIn && !(/^[6-9]\d{9}$/gm).test(state.phone_no))){
+      showHideMessage("Mobile number is invalid");
+      return;
+    } else if (!isSignIn && state.address == "") {
+      showHideMessage("Address is empty");
+      return;
+    } else if (!isSignIn && state.password == "") {
+      showHideMessage("Password is empty");
+      return;
+    }
+
     httpRequest(
       state,
       isSignIn ? "userAuthentication.php" : "createUser.php"
@@ -50,15 +75,14 @@ export const SignIn = () => {
           JSON.stringify(...data.message)
         );
         navigate(-1);
+      } else {
+        showHideMessage("Invalid Credentials");
       }
-      if (typeof isSignIn == "undefined" && data.status) {
-        // signup +success
-        setMessage(data.message);
+      if (!
+        isSignIn && data.status) {
+        showHideMessage("Sign up completed successfully please sign in");
         showHideSignIn(true);
       }
-      setTimeout(() => {
-        setMessage("");
-      }, 3000);
     });
   };
   return (
@@ -73,7 +97,7 @@ export const SignIn = () => {
           )}
           <div className="mobile spacing">
             <input
-              type="text"
+              type="number"
               className="signInControl"
               value={state.signInMobile}
               name="signInMobile"
@@ -132,7 +156,7 @@ export const SignIn = () => {
             </div>
             <div className="mobile spacing">
               <input
-                type="text"
+                type="number"
                 name="phone_no"
                 onChange={handleInputChange}
                 className="signInControl"

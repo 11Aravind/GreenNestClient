@@ -3,7 +3,6 @@ import { useRef } from "react";
 export const PayOnline = () => {
   const { state } = useLocation();
   const submitBtn = useRef(null);
-  console.log(state);
   setTimeout(() => {
     submitBtn.current.click();
   }, 3000);
@@ -35,15 +34,6 @@ export const PayOnline = () => {
             value="submit"
           ></input>{" "}
         </form>
-        {/* <button
-          onClick={(e) =>
-            this.form.dispatchEvent(
-              new Event("submit", { cancelable: true, bubbles: true })
-            )
-          }
-        >
-          Submit form
-        </button> */}
       </div>
     </div>
   );

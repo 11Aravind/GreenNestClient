@@ -114,6 +114,21 @@ const Navbar = () => {
             },
           ],
         },
+        {
+          id: 17,
+          name: "FAQ",
+          children: [
+            {
+              content: [
+                { name: "Contact US", rout:"/contactus" },
+                { name: "Privacy Policy", rout: "/PrivacyPolicy" },
+                { name: "Terms & Conditions", rout: "/Terms" },
+                { name: "Cancellation & Refund", rout: "/RefundPolicy" },
+                { name: "About US", rout: "/About"  },
+              ],
+            },
+          ],
+        },
       ],
     },
   ];
@@ -136,15 +151,8 @@ const Navbar = () => {
 
         <Link to="/">
           <div className="logo">
-            <img
-              srcSet="//cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=200&amp;v=1660383580 1x, //cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=400&amp;v=1660383580 2x"
-              src="//cdn.shopify.com/s/files/1/0579/7924/0580/files/greenlogo.png?height=200&amp;v=1660383580"
-              loading="lazy"
-              width="131"
-              height="59"
-              alt="Ugaoo"
-              className="header__heading-logo small-hide"
-            />
+            <img src="./image/logo.png" width="60"
+             />
           </div>
         </Link>
       </div>

@@ -37,17 +37,12 @@
 .signUPMessage {
   text-align: center;
   display: flex;
-  background-color: green;
+  /* background-color: gray; */
   justify-content: center;
   align-items: center;
-  color: white;
-
-  text-transform: capitalize;
-  /* line-height: 59px; */
-  padding: 2% 0%;
-  margin-top: 5%;
-
-
+  color: red;
+  /* padding: 2% 0%;
+  margin-top: 5%; */
 }
 
 @media (max-width: 768px) {

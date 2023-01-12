@@ -38,19 +38,14 @@ export const OrderConfirmation = () => {
         }
       });
     }
-    // console.log(address);
-    // console.log(address);
-    // console.log(items);
-    // console.log(cartTotal);
-    // console.log(paymentMode);
-    // CheckoutPage.php
+
   };
   return (
     <div className="spacing categoryFilterContainer">
       <div className="product-headding">Confirm your location</div>
       <div className="address spacing">
         <textarea
-          className="signInControl textArea spacing"
+          className="signInControl textArea"
           placeholder="Enter Your Address"
           rows="4"
           name="address"
