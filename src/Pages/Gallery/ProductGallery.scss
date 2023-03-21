@@ -1,0 +1,71 @@
+.fullscreen {
+    // height: 100vh;
+    // background: #2a6478;
+    min-height: 100vh;
+    // background: #2a6478;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imageContainer:hover span {
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    // overflow: hidden;
+    // margin: auto;
+    // display: flex;
+    gap: 2em;
+  }
+  .imageContainer {
+    position: relative;
+    width: 270px;
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .imageContainer:hover span {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    font-family: "Poppins", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-position: center;
+    backgroud-size: cover;
+  }
+  
+  .imageContainer img {
+    transition: 0.3s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .imageContainer:hover img {
+    transform: scale(1.2);
+  }
+  .imageContainer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: 0.5s;
+  }
+  .imageContainer:hover::before {
+    left: 0;
+  }
+  

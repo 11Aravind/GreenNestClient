@@ -1,4 +1,4 @@
-import "./Gallery.scss";
+import "./ProductGallery.scss";
 export const Gallery = () => {
   const gallery = [
     {
