@@ -1,0 +1,11 @@
+.aboutUsBGImg1 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.aboutUsBGImg2 {
+  position: absolute;
+  bottom: 0;
+  left: -2%;
+  width: 16%;
+}
