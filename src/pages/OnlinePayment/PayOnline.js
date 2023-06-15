@@ -1,30 +1,39 @@
 import { useLocation } from "react-router";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 export const PayOnline = () => {
   const { state } = useLocation();
   const submitBtn = useRef(null);
-  setTimeout(() => {
-    submitBtn.current.click();
-  }, 3000);
+  const tidRef = useRef(null);
+
   const data = {
-    ORDER_ID: state.orderID,
+    order_id: state.orderID,
     CUST_ID: state.user_id,
-    INDUSRTY_TYPE_ID: "Retail",
-    CHANNEL_ID: "WEB",
-    TXN_AMOUNT: state.cartTotal,
+    amount: state.cartTotal,
+    currency:"INR",
+    merchant_id:2557316,
+    redirect_url:"https://greenlandorganicfarms.com/api/User/cca/ccavResponseHandler.php",
+    cancel_url:"https://greenlandorganicfarms.com/api/User/cca/ccavResponseHandler.php",
+
   };
-  console.log(data);
+  useEffect(()=>{
+    setTimeout(() => {
+      submitBtn.current.click();
+    }, 1000);
+  },[])
+
   return (
     <div>
       Please wait you will redirect with in 3 sec
       <div>
         <form
-          action="https://greenlandorganicfarms.com/api/User/paytm/pgRedirect.php"
+          action="https://greenlandorganicfarms.com/api/User/cca/ccavRequestHandler.php"
           method="post"
         >
-          {Object.keys(data).map((eachItem) => {
+          <div><input type="hidden" value={new Date().getTime()} readOnly ref={tidRef} name="tid" id="tid"  /></div>
+          {Object.keys(data).map((eachItem, index) => {
             return (
-              <input type="hidden" value={data[eachItem]} name={eachItem} />
+              <input key={index} readOnly type="hidden" value={data[eachItem]} name={eachItem} />
+              // <input key={index} type="hidden" value={data[eachItem]} name={eachItem} />
             );
           })}
           <input
