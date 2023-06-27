@@ -20,7 +20,7 @@ export const PayOnline = () => {
       submitBtn.current.click();
     }, 1000);
   },[])
-
+//commenty
   return (
     <div>
       Please wait you will redirect with in 3 sec
